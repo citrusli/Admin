@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhongruan.dao.IBook" >
+
+    <insert id="addBook" parameterType="com.zhongruan.bean.Book">
+        insert into book(isbn,title,author,pubId,version,publishDate,introduction,type2,pictureUrl)
+        values (#{isbn},#{title},#{author},#{pubId},#{version},#{publishDate},#{introduction},#{type2},#{pictureUrl})
+    </insert>
+
+    <select id="findBookByIsbn" parameterType="String" resultType="com.zhongruan.bean.Book">
+        select * from book where isbn = #{isbn}
+    </select>
+
+    <select id="findBookByTitle" parameterType="String" resultType="com.zhongruan.bean.Book">
+        select * from book where title = #{title}
+    </select>
+
+    <select id="findBookById" parameterType="int" resultType="com.zhongruan.bean.Book">
+        select * from book where id = #{id}
+    </select>
+
+</mapper>

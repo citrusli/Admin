@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhongruan.dao.IType2" >
+
+    <select id="findType2ByName" parameterType="String" resultType="com.zhongruan.bean.BookType2">
+        select * from booktype2 where typeName = #{typeName}
+    </select>
+
+    <insert id="addType2" parameterType="com.zhongruan.bean.BookType2">
+        insert into booktype2(typeName,type1) values (#{typeName},#{type1})
+    </insert>
+
+    <select id="findType2ByType1" parameterType="int" resultType="com.zhongruan.bean.BookType2">
+        select * from booktype2 where type1 = #{type1}
+    </select>
+
+</mapper>

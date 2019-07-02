@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhongruan.dao.IAdmin" >
+
+    <select id = "findAll" resultType = "com.zhongruan.bean.Admin">
+        select * from admin
+    </select>
+    
+    <select id="findAdminById" parameterType="int" resultType="com.zhongruan.bean.Admin">
+        select * from admin where id = #{id}
+    </select>
+    
+    <select id="findAdminByNamePass" parameterType="com.zhongruan.bean.Admin" resultType="com.zhongruan.bean.Admin">
+        select * from admin where adminName = #{adminName} and adminPassword = #{adminPassword}
+    </select>
+
+    <insert id="addAdmin" parameterType="com.zhongruan.bean.Admin">
+        insert into admin(adminName,adminPassword,adminEmail) values(#{adminName},#{adminPassword},#{adminEmail})
+    </insert>
+
+    <delete id="delAdmin" parameterType="int">
+        delete from admin where id = #{id}
+    </delete>
+
+    <update id="updateAdmin" parameterType="com.zhongruan.bean.Admin">
+        update admin set adminName = #{adminName},adminPassword = #{adminPassword},adminEmail = #{adminPassword} where id = #{id}
+    </update>
+
+</mapper>
